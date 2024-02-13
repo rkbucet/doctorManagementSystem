@@ -18,4 +18,7 @@ class Doctor(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     fees = models.IntegerField()
     experience = models.IntegerField()
+
+    def __str__(self) -> str:
+        return f'{self.name} - {self.speciality} - {self.location} - Exp-{self.experience} Years'
     

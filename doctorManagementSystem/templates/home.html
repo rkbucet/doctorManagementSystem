@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Document</title>
+</head>
+<body bgcolor="cyan">
+    <h1 align="center">Doctor Management System</h1>
+    <span><h2><a href="{% url 'insert' %}">Insert Record</a></h2></span>
+    <form action="" method="post">
+        <table border="2px" align="center" >
+            <tr>
+                <th>ID</th>
+                <th>Doctor's Name</th>
+                <th>Speciality</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th>Fees</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for data in doctor %}
+            <tr>
+                <td> {{ data.id }}</td>
+                <td> {{ data.name }}</td>
+                <td> {{ data.speciality }}</td>
+                <td> {{ data.experience }}</td>
+                <td> {{ data.location }}</td>
+                <td> {{ data.fees }}</td>
+                <td><a href="{% url 'update' data.id %}">Update</a></td>
+                <td><a href="{% url 'delete' data.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

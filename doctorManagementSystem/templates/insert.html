@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert data</title>
+</head>
+<body>
+    <form action="insert" method="post">
+        {% csrf_token %}
+        <h2 align="center">Update Doctor Details</h2>
+        <table border="2px" align="center" >
+            <tr>
+                <th>Doctor's Name</th>
+                <td><input type="text" name='doctorName'></td>
+            </tr>
+            <tr>
+                <th>Speciality</th>
+                <td>
+                    <select name="speciality" >
+                        <option>--select Speciality--</option>
+                        {% for i in speciality %}
+                        <option>{{ i.specialist }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>
+                    <input type="float" name="experience">
+                </td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>
+                    <select name="location">
+                        <option>--select location--</option>
+                        {% for i in location %}
+                        <option >{{ i.location }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Fees</th>
+                <td>
+                    <input type="text" name="fees">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button>Submit</button></td>
+            </tr>
+            
+            
+        </table>
+        
+        
+    </form>
+    
+</body>
+</html>
